@@ -5,42 +5,92 @@ import {
   Layout, 
   Settings, 
   Terminal, 
-  Cpu,
   Globe,
-  Server
+  Coffee,
+  FileCode,
+  Server,
+  GitBranch,
+  Github,
+  Cloud,
+  Send,
+  Box,
+  Monitor,
+  Users,
+  MessageSquare,
+  Crown,
+  FileJson,
+  Palette
 } from "lucide-react";
 
-const skillCategories = [
+const mainSkills = [
   {
     title: "Programming Languages",
-    icon: Code2,
-    skills: ["Java", "C", "C++", "Python", "SQL", "PL/SQL"]
-  },
-  {
-    title: "Web Technologies",
-    icon: Globe,
-    skills: ["HTML5", "CSS3", "JavaScript", "REST APIs", "MVC Architecture"]
+    items: [
+      { name: "Java", icon: Coffee },
+      { name: "C", icon: FileCode },
+      { name: "C++", icon: Code2 },
+      { name: "Python", icon: FileCode },
+      { name: "SQL", icon: Database }
+    ]
   },
   {
     title: "Databases",
-    icon: Database,
-    skills: ["MySQL", "PostgreSQL", "MongoDB"]
+    items: [
+      { name: "MySQL", icon: Database },
+      { name: "PostgreSQL", icon: Database },
+      { name: "MongoDB", icon: Database }
+    ]
+  },
+  {
+    title: "Web Technologies",
+    items: [
+      { name: "HTML5", icon: Layout },
+      { name: "CSS3", icon: Palette },
+      { name: "JavaScript", icon: FileJson }
+    ]
   },
   {
     title: "Tools & Frameworks",
-    icon: Settings,
-    skills: ["Hibernate", "Docker", "Git & GitHub", "Firebase", "Postman", "IntelliJ IDEA", "VS Code"]
+    items: [
+      { name: "Hibernate", icon: Settings },
+      { name: "Docker", icon: Box },
+      { name: "Git", icon: GitBranch },
+      { name: "GitHub", icon: Github },
+      { name: "Firebase", icon: Cloud },
+      { name: "Postman", icon: Send }
+    ]
   },
   {
-    title: "Core Concepts",
-    icon: Cpu,
-    skills: ["Data Structures", "Algorithms", "OOP", "Multithreading", "Debugging", "Design Patterns"]
+    title: "IDEs & Editors",
+    items: [
+      { name: "IntelliJ IDEA", icon: Terminal },
+      { name: "Eclipse", icon: Code2 },
+      { name: "VS Code", icon: Code2 }
+    ]
   },
   {
-    title: "Soft Skills",
-    icon: Server,
-    skills: ["Teamwork", "Communication", "Leadership", "Problem Solving"]
+    title: "Operating Systems",
+    items: [
+      { name: "Windows", icon: Monitor },
+      { name: "Linux", icon: Server }
+    ]
   }
+];
+
+const coreConcepts = [
+  "Data Structures & Algorithms",
+  "Object-Oriented Programming",
+  "Multithreading",
+  "Debugging",
+  "Design Patterns",
+  "REST APIs",
+  "MVC Architecture"
+];
+
+const softSkills = [
+  { name: "Teamwork", icon: Users },
+  { name: "Communication", icon: MessageSquare },
+  { name: "Leadership", icon: Crown }
 ];
 
 export function Skills() {
@@ -48,41 +98,80 @@ export function Skills() {
     <section className="py-24 bg-[#0a0a0a]" id="skills">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical <span className="text-gradient-primary">Toolkit</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & <span className="text-gradient-primary">Expertise</span></h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A well-rounded technical skillset built through hands-on projects, real-world problem-solving, and continuous learning.
+            A comprehensive toolkit for building modern applications
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, index) => (
+        {/* Main Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {mainSkills.map((category, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="glass-card p-6 rounded-2xl hover:border-primary/30 transition-all hover:-translate-y-1 group"
+              className="bg-[#0f1219] border border-white/5 p-6 rounded-2xl hover:border-primary/30 transition-colors"
             >
-              <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
-                <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                  <category.icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold">{category.title}</h3>
-              </div>
-              
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, i) => (
-                  <span 
+              <h3 className="text-lg font-bold mb-6">{category.title}</h3>
+              <div className="flex flex-wrap gap-3">
+                {category.items.map((skill, i) => (
+                  <div 
                     key={i} 
-                    className="px-3 py-1.5 text-sm rounded-md bg-white/5 border border-white/5 hover:border-primary/30 hover:bg-primary/5 transition-colors text-muted-foreground hover:text-foreground cursor-default"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/5 text-sm text-muted-foreground hover:text-white hover:bg-white/10 transition-colors cursor-default"
                   >
-                    {skill}
-                  </span>
+                    <skill.icon className="w-4 h-4" />
+                    <span>{skill.name}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Core Concepts */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#0f1219] border border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-colors"
+          >
+            <h3 className="text-lg font-bold mb-6">Core Concepts</h3>
+            <div className="flex flex-wrap gap-3">
+              {coreConcepts.map((concept, i) => (
+                <span 
+                  key={i} 
+                  className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium border border-primary/20 hover:bg-primary/20 transition-colors cursor-default"
+                >
+                  {concept}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Soft Skills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#0f1219] border border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-colors"
+          >
+            <h3 className="text-lg font-bold mb-6">Soft Skills</h3>
+            <div className="grid grid-cols-3 gap-4">
+              {softSkills.map((skill, i) => (
+                <div 
+                  key={i} 
+                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-white/5 border border-white/5 text-center hover:bg-white/10 transition-colors group"
+                >
+                  <skill.icon className="w-6 h-6 mb-3 text-muted-foreground group-hover:text-white transition-colors" />
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-white transition-colors">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
