@@ -1,29 +1,56 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Folder, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const projects = [
   {
-    title: "E-Commerce Dashboard",
-    description: "A comprehensive analytics dashboard for online retailers with real-time data visualization.",
-    tags: ["Next.js", "TypeScript", "Recharts", "Supabase"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+    category: "Web Application",
+    title: "Online Examination System",
+    description: "A comprehensive platform for conducting secure online exams with real-time monitoring and automated grading.",
+    highlights: "Implemented secure user authentication and real-time timer functionality.",
+    tech: ["Java", "JSP", "MySQL", "Bootstrap"],
+    date: "Oct 2024",
     link: "#",
     github: "#"
   },
   {
-    title: "AI Content Generator",
-    description: "SaaS platform utilizing OpenAI API to generate marketing copy and social media posts.",
-    tags: ["React", "Node.js", "OpenAI", "Stripe"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop",
+    category: "Web Application",
+    title: "Student Management System",
+    description: "Efficient system to track student records, attendance, and grades with role-based access control.",
+    highlights: "Optimized database queries for faster retrieval of student records.",
+    tech: ["Spring Boot", "React", "PostgreSQL"],
+    date: "Aug 2024",
     link: "#",
     github: "#"
   },
   {
-    title: "Task Master",
-    description: "Collaborative project management tool with drag-and-drop boards and team chat.",
-    tags: ["Vue", "Firebase", "Tailwind", "Pinia"],
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2672&auto=format&fit=crop",
+    category: "Web Application",
+    title: "Real Estate Management",
+    description: "Property listing platform allowing users to buy, sell, and rent properties with advanced search filters.",
+    highlights: "Integrated map view and image gallery for property listings.",
+    tech: ["MERN Stack", "Redux", "Tailwind"],
+    date: "June 2024",
+    link: "#",
+    github: "#"
+  },
+  {
+    category: "Java",
+    title: "Library Management System",
+    description: "Desktop application for managing book inventory, member records, and book issuing process.",
+    highlights: "Used Java Swing for GUI and JDBC for database connectivity.",
+    tech: ["Core Java", "Swing", "MySQL"],
+    date: "Mar 2024",
+    link: "#",
+    github: "#"
+  },
+  {
+    category: "DSA",
+    title: "Pathfinding Visualizer",
+    description: "Interactive visualizer for common pathfinding algorithms like Dijkstra's and A*.",
+    highlights: "Visualized complex algorithms to aid in understanding graph theory.",
+    tech: ["JavaScript", "HTML5", "CSS3"],
+    date: "Jan 2024",
     link: "#",
     github: "#"
   }
@@ -31,63 +58,114 @@ const projects = [
 
 export function Projects() {
   return (
-    <section className="py-24 bg-black/20" id="projects">
+    <section className="py-24 bg-[#0a0a0a]" id="projects">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured <span className="text-gradient-primary">Projects</span></h2>
             <p className="text-muted-foreground max-w-xl">
-              A selection of my recent work, ranging from web applications to design systems.
+              Showcasing my journey through code. From web applications to complex algorithms.
             </p>
           </div>
-          <Button variant="outline" className="rounded-full">View Github</Button>
+          <Button variant="outline" className="rounded-full border-white/10 hover:bg-white/5">
+            <Github className="w-4 h-4 mr-2" /> View GitHub Profile
+          </Button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative rounded-2xl overflow-hidden bg-card border border-white/5 hover:border-primary/50 transition-all duration-300"
-            >
-              <div className="aspect-video overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              
-              <div className="p-6">
-                <div className="flex gap-2 mb-4 flex-wrap">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary font-medium">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-6 line-clamp-2">
-                  {project.description}
-                </p>
-                
-                <div className="flex items-center gap-4">
-                  <a href={project.link} className="flex items-center text-sm font-medium hover:text-primary transition-colors">
-                    <ExternalLink className="w-4 h-4 mr-2" /> Live Demo
-                  </a>
-                  <a href={project.github} className="flex items-center text-sm font-medium hover:text-primary transition-colors">
-                    <Github className="w-4 h-4 mr-2" /> Source
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <Tabs defaultValue="all" className="w-full">
+          <TabsList className="w-full max-w-md mx-auto mb-12 bg-white/5 border border-white/10 p-1 rounded-full h-auto flex flex-wrap justify-center gap-1">
+            <TabsTrigger value="all" className="rounded-full px-4 py-2 data-[state=active]:bg-primary data-[state=active]:text-white">All Projects</TabsTrigger>
+            <TabsTrigger value="web" className="rounded-full px-4 py-2 data-[state=active]:bg-primary data-[state=active]:text-white">Web App</TabsTrigger>
+            <TabsTrigger value="java" className="rounded-full px-4 py-2 data-[state=active]:bg-primary data-[state=active]:text-white">Java</TabsTrigger>
+            <TabsTrigger value="dsa" className="rounded-full px-4 py-2 data-[state=active]:bg-primary data-[state=active]:text-white">DSA</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="all" className="mt-0">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.map((project, index) => (
+                <ProjectCard key={index} project={project} index={index} />
+              ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="web" className="mt-0">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.filter(p => p.category === "Web Application").map((project, index) => (
+                <ProjectCard key={index} project={project} index={index} />
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="java" className="mt-0">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.filter(p => p.category === "Java").map((project, index) => (
+                <ProjectCard key={index} project={project} index={index} />
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="dsa" className="mt-0">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.filter(p => p.category === "DSA").map((project, index) => (
+                <ProjectCard key={index} project={project} index={index} />
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ project, index }: { project: any, index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="group relative flex flex-col h-full bg-card border border-white/5 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+    >
+      {/* Top Bar decoration */}
+      <div className="h-2 bg-gradient-to-r from-primary/50 to-purple-500/50 w-full" />
+      
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex justify-between items-start mb-4">
+          <div className="p-2 rounded-lg bg-white/5 text-primary">
+            <Folder className="w-6 h-6" />
+          </div>
+          <span className="text-xs font-medium px-2 py-1 rounded-full bg-white/5 text-muted-foreground border border-white/5 flex items-center gap-1">
+            <Calendar className="w-3 h-3" /> {project.date}
+          </span>
+        </div>
+        
+        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
+        
+        <div className="mb-4 flex flex-wrap gap-2">
+          {project.tech.map((t: string, i: number) => (
+            <span key={i} className="text-xs font-medium text-primary/80">#{t}</span>
+          ))}
+        </div>
+
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-3 flex-grow">
+          {project.description}
+        </p>
+        
+        <div className="bg-white/5 p-3 rounded-lg mb-6">
+          <p className="text-xs text-muted-foreground">
+            <span className="text-primary font-bold">Highlight:</span> {project.highlights}
+          </p>
+        </div>
+        
+        <div className="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+          <Button size="sm" className="flex-1 bg-white text-black hover:bg-gray-200" asChild>
+            <a href={project.link}>Live Demo</a>
+          </Button>
+          <Button size="sm" variant="outline" className="flex-1 border-white/10 hover:bg-white/5" asChild>
+            <a href={project.github}><Github className="w-4 h-4 mr-2" /> Code</a>
+          </Button>
+        </div>
+      </div>
+    </motion.div>
   );
 }

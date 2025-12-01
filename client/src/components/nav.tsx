@@ -1,27 +1,40 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const links = [
   { name: "Home", href: "#" },
+  { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
+  { name: "Certifications", href: "#certifications" },
   { name: "Contact", href: "#contact" },
 ];
 
 export function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
+    
+    // Set initial dark mode
+    document.documentElement.classList.add("dark");
+    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+  };
 
   return (
     <motion.header
@@ -34,14 +47,14 @@ export function Nav() {
     >
       <div className="container mx-auto px-4">
         <nav
-          className={`mx-auto max-w-5xl rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300 ${
+          className={`mx-auto max-w-6xl rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300 ${
             isScrolled
               ? "bg-black/50 backdrop-blur-lg border border-white/10 shadow-lg"
               : "bg-transparent border-transparent"
           }`}
         >
           <Link href="/" className="text-xl font-bold tracking-tighter flex items-center gap-2">
-            <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-mono">A</span>
+            <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-mono">AJ</span>
             Aniket
           </Link>
 
@@ -51,7 +64,7 @@ export function Nav() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
@@ -59,8 +72,16 @@ export function Nav() {
             ))}
           </div>
 
-          <div className="hidden md:block">
-            <Button size="sm" className="rounded-full">Hire Me</Button>
+          <div className="hidden md:flex items-center gap-4">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={toggleTheme}
+              className="rounded-full text-muted-foreground hover:text-primary"
+            >
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </Button>
+            <Button size="sm" className="rounded-full bg-primary hover:bg-primary/90 text-white">Download CV</Button>
           </div>
 
           {/* Mobile Toggle */}
@@ -91,7 +112,18 @@ export function Nav() {
                 {link.name}
               </a>
             ))}
-            <Button className="w-full mt-2">Hire Me</Button>
+            <div className="flex justify-between items-center mt-2">
+               <span className="text-sm text-muted-foreground">Theme</span>
+               <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={toggleTheme}
+                className="rounded-full"
+              >
+                {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </Button>
+            </div>
+            <Button className="w-full mt-2">Download CV</Button>
           </div>
         </motion.div>
       )}
