@@ -60,13 +60,11 @@ export function Projects() {
   return (
     <section className="py-24 bg-[#0a0a0a]" id="projects">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured <span className="text-gradient-primary">Projects</span></h2>
-            <p className="text-muted-foreground max-w-xl">
-              Showcasing my journey through code. From web applications to complex algorithms.
-            </p>
-          </div>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured <span className="text-gradient-primary">Projects</span></h2>
+          <p className="text-muted-foreground max-w-xl mx-auto mb-8">
+            Showcasing my journey through code. From web applications to complex algorithms.
+          </p>
           <Button variant="outline" className="rounded-full border-white/10 hover:bg-white/5">
             <Github className="w-4 h-4 mr-2" /> View GitHub Profile
           </Button>

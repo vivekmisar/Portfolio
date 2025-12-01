@@ -99,23 +99,23 @@ export function Certifications() {
               <h3 className="text-2xl font-bold">Key Achievements</h3>
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="glass-card p-8 rounded-3xl h-full border border-white/5"
-            >
-              <ul className="space-y-6">
-                {achievements.map((achievement, index) => (
-                  <li key={index} className="flex items-start gap-4">
-                    <div className="mt-1 h-6 w-6 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-4 h-4 text-green-500" />
-                    </div>
-                    <span className="text-muted-foreground text-lg">{achievement}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            <div className="space-y-4">
+              {achievements.map((achievement, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="glass-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors flex gap-4"
+                >
+                  <div className="mt-1 h-6 w-6 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-4 h-4 text-green-500" />
+                  </div>
+                  <span className="text-muted-foreground text-base">{achievement}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
         
