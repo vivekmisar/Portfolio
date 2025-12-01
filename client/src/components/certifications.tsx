@@ -118,28 +118,6 @@ export function Certifications() {
             </div>
           </div>
         </div>
-        
-        {/* Resume Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10 p-12 rounded-3xl border border-primary/20"
-        >
-          <FileText className="w-12 h-12 text-primary mx-auto mb-4" />
-          <h3 className="text-2xl font-bold mb-4">Ready to see my full professional journey?</h3>
-          <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-            Download my resume to get a detailed overview of my education, projects, and technical expertise.
-          </p>
-          <div className="flex justify-center gap-4">
-            <Button size="lg" className="rounded-full px-8 bg-white text-black hover:bg-gray-200">
-              View Resume
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 border-white/10 hover:bg-white/5">
-              <Download className="w-4 h-4 mr-2" /> Download PDF
-            </Button>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
