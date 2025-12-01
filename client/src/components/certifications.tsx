@@ -1,121 +1,151 @@
 import { motion } from "framer-motion";
-import { Award, CheckCircle, Download, FileText } from "lucide-react";
+import { Award, ExternalLink, Star, Code, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const certifications = [
   {
-    title: "Programming in Java",
-    platform: "NPTEL",
+    title: "C Programming",
+    platform: "Online Certification",
+    date: "2023",
+    link: "#"
+  },
+  {
+    title: "C++ Programming",
+    platform: "Online Certification",
+    date: "2023",
+    link: "#"
+  },
+  {
+    title: "Data Structures & Algorithms",
+    platform: "Online Course",
+    date: "2023",
+    link: "#"
+  },
+  {
+    title: "Python Programming",
+    platform: "Online Certification",
     date: "2024",
-    skills: ["Core Java", "OOP"],
     link: "#"
   },
   {
-    title: "Data Structures and Algorithms",
-    platform: "Coursera",
-    date: "2023",
-    skills: ["DSA", "Problem Solving"],
+    title: "Core Java",
+    platform: "Java Institute",
+    date: "2024",
     link: "#"
   },
   {
-    title: "Web Development Bootcamp",
-    platform: "Udemy",
-    date: "2023",
-    skills: ["HTML", "CSS", "JS"],
+    title: "Advanced Java",
+    platform: "Java Institute",
+    date: "2024",
     link: "#"
   },
   {
-    title: "SQL (Basic)",
-    platform: "HackerRank",
-    date: "2023",
-    skills: ["SQL", "Database"],
+    title: "Hibernate Framework",
+    platform: "Online Course",
+    date: "2024",
+    link: "#"
+  },
+  {
+    title: "Postman API Testing",
+    platform: "Postman Learning",
+    date: "2024",
     link: "#"
   }
 ];
 
 const achievements = [
-  "Achieved 5-star rating in C, C++, Java, and SQL on HackerRank demonstrating multi-language expertise",
-  "Solved 200+ problems on LeetCode across various difficulty levels",
-  "Participated in multiple hackathons achieving top 10 positions with working prototypes",
-  "Active contributor to open-source projects on GitHub"
+  {
+    title: "5-Star Rating in Multiple Languages",
+    description: "Achieved 5-star rating in C, C++, Java, and SQL on HackerRank, demonstrating multi-language expertise and problem-solving skills",
+    icon: Star,
+    color: "text-yellow-400"
+  },
+  {
+    title: "200+ LeetCode Problems",
+    description: "Solved over 200 algorithmic challenges on LeetCode, covering arrays, strings, trees, graphs, dynamic programming, and more",
+    icon: Code,
+    color: "text-orange-400"
+  },
+  {
+    title: "Hackathon Participation",
+    description: "Participated in multiple hackathons with working prototypes, showcasing rapid development skills and innovation under pressure",
+    icon: Trophy,
+    color: "text-green-400"
+  }
 ];
 
 export function Certifications() {
   return (
     <section className="py-24 bg-[#0a0a0a]" id="certifications">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Achievements & <span className="text-gradient-primary">Certifications</span></h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Validating my skills through recognized platforms and continuous competition.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Certifications Column */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-4">
-              <Award className="w-6 h-6 text-primary" />
-              <h3 className="text-2xl font-bold">Certifications</h3>
-            </div>
-            
-            <div className="grid gap-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="glass-card p-5 rounded-xl border border-white/5 hover:border-primary/30 transition-colors flex justify-between items-center"
-                >
-                  <div>
-                    <h4 className="font-bold text-foreground mb-1">{cert.title}</h4>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                      <span>{cert.platform}</span>
-                      <span className="w-1 h-1 rounded-full bg-white/20" />
-                      <span>{cert.date}</span>
-                    </div>
-                    <div className="flex gap-2">
-                      {cert.skills.map((skill, i) => (
-                        <span key={i} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <Button variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary" asChild>
-                    <a href={cert.link}>Verify</a>
-                  </Button>
-                </motion.div>
-              ))}
-            </div>
+        {/* Key Achievements Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold">Key Achievements</h2>
           </div>
 
-          {/* Achievements Column */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-4">
-              <CheckCircle className="w-6 h-6 text-primary" />
-              <h3 className="text-2xl font-bold">Key Achievements</h3>
-            </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {achievements.map((achievement, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-[#111113] border border-white/5 p-8 rounded-2xl text-center hover:border-primary/30 transition-colors group"
+              >
+                <div className={`w-12 h-12 mx-auto mb-6 rounded-full bg-white/5 flex items-center justify-center ${achievement.color} group-hover:scale-110 transition-transform`}>
+                  <achievement.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">{achievement.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {achievement.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
-            <div className="space-y-4">
-              {achievements.map((achievement, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="glass-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-colors flex gap-4"
-                >
-                  <div className="mt-1 h-6 w-6 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-4 h-4 text-green-500" />
+        {/* Certifications Section */}
+        <div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold">Certifications</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-[#0f1219] border border-white/5 rounded-xl overflow-hidden hover:border-blue-500/50 transition-all group flex flex-col"
+              >
+                <div className="p-6 flex-grow">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="w-8 h-8 text-blue-400">
+                      <Award className="w-6 h-6" />
+                    </div>
+                    <span className="px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-full">
+                      {cert.date}
+                    </span>
                   </div>
-                  <span className="text-muted-foreground text-base">{achievement}</span>
-                </motion.div>
-              ))}
-            </div>
+                  
+                  <h3 className="text-lg font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">{cert.title}</h3>
+                  <p className="text-sm text-muted-foreground">{cert.platform}</p>
+                </div>
+                
+                <div className="mt-auto">
+                  <a 
+                    href={cert.link}
+                    className="flex items-center justify-center gap-2 w-full py-3 border-t border-white/5 text-sm font-medium text-muted-foreground hover:bg-white/5 hover:text-white transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" /> Verify
+                  </a>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
