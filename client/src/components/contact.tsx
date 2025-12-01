@@ -6,7 +6,7 @@ import { Mail, MapPin, Phone, Github, Linkedin, Code2 } from "lucide-react";
 
 export function Contact() {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#0a0a0a]" id="contact">
+    <section className="py-24 relative overflow-hidden" id="contact">
       {/* Background Glow */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
 

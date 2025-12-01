@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, Twitter, Code2, Terminal } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden bg-[#0a0a0a]">
+    <section className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
       {/* Background Elements - subtle gradients matching the dark theme */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />

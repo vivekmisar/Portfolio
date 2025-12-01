@@ -76,7 +76,7 @@ const achievements = [
 
 export function Certifications() {
   return (
-    <section className="py-24 bg-[#0a0a0a]" id="certifications">
+    <section className="py-24" id="certifications">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
            <h2 className="text-3xl md:text-4xl font-bold mb-4">Achievements & <span className="text-gradient-primary">Certifications</span></h2>

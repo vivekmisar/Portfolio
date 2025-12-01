@@ -58,7 +58,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section className="py-24 bg-[#0a0a0a]" id="projects">
+    <section className="py-24" id="projects">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured <span className="text-gradient-primary">Projects</span></h2>

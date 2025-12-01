@@ -27,7 +27,7 @@ const education = [
 
 export function About() {
   return (
-    <section className="py-24 relative bg-[#0a0a0a]" id="about">
+    <section className="py-24 relative" id="about">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About <span className="text-gradient-primary">Me</span></h2>
@@ -75,7 +75,7 @@ export function About() {
             <div className="space-y-6 border-l border-white/10 pl-8 relative">
               {education.map((edu, index) => (
                 <div key={index} className="relative">
-                  <span className="absolute -left-[39px] top-1 h-5 w-5 rounded-full border-2 border-primary bg-[#0a0a0a]" />
+                  <span className="absolute -left-[39px] top-1 h-5 w-5 rounded-full border-2 border-primary bg-background" />
                   <div className="glass-card p-6 rounded-xl hover:bg-white/5 transition-colors">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
                       <h4 className="text-lg font-bold text-foreground">{edu.degree}</h4>
