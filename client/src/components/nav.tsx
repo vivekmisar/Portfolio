@@ -81,7 +81,9 @@ export function Nav() {
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
-            <Button size="sm" className="rounded-full bg-primary hover:bg-primary/90 text-white">Download CV</Button>
+            <Button size="sm" className="rounded-full bg-primary hover:bg-primary/90 text-white" asChild>
+              <a href="https://drive.google.com/file/d/1KVUn2BsmhlHPinjNnRZhveGyL2WQZ7cO/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download CV</a>
+            </Button>
           </div>
 
           {/* Mobile Toggle */}
@@ -123,7 +125,11 @@ export function Nav() {
                 {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>
             </div>
-            <Button className="w-full mt-2">Download CV</Button>
+            <Button asChild className="w-full mt-2">
+            <a href="https://drive.google.com/file/d/1KVUn2BsmhlHPinjNnRZhveGyL2WQZ7cO/view?usp=sharing" download>
+              Download CV
+            </a>
+          </Button>
           </div>
         </motion.div>
       )}

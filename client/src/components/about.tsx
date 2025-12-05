@@ -18,9 +18,9 @@ const education = [
   },
   {
     degree: "Secondary School Certificate (SSC)",
-    school: "Z.P. High School",
+    school: "Z.P. High School Sakhali Bk, Buldhana",
     year: "2021",
-    grade: "",
+    grade: "85.50%",
     description: "Maharashtra State Board"
   }
 ];
@@ -49,14 +49,13 @@ export function About() {
               <h3 className="text-2xl font-bold">Professional Focus</h3>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              As a B.Tech IT student, my journey in technology is driven by a deep curiosity for how complex systems are built. 
-              I specialize in <span className="text-foreground font-medium">Java Development</span> and <span className="text-foreground font-medium">Full Stack Engineering</span>, 
-              consistently pushing myself to learn modern frameworks and best practices.
+              A dedicated Java developer with hands-on experience building full-stack applications, managing databases, and delivering backend-focused solutions with clean and structured logic. Experienced in developing multi-role platforms, automating workflows, improving system performance, and ensuring data reliability across projects.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              My goal is to secure a challenging role where I can apply my technical skills in backend development, 
-              database management, and frontend interfaces to solve real-world problems. I thrive in collaborative 
-              environments and am eager to contribute to high-impact projects.
+              Driven by a strong foundation in programming, problem-solving, and system design, with a consistent record of completing academic and real-world projects such as examination systems and management platforms. Passionate about creating applications that are efficient, scalable, and practical for everyday use.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Actively involved in continuous learning, completing multiple certifications, contributing to open-source projects, and solving numerous coding challenges to sharpen technical depth. Committed to writing maintainable code, understanding project requirements deeply, and delivering solutions that have real impact.
             </p>
           </motion.div>
 

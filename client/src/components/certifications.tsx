@@ -5,51 +5,51 @@ import { Button } from "@/components/ui/button";
 const certifications = [
   {
     title: "C Programming",
-    platform: "Online Certification",
+    platform: "Techno Comp Academy",
     date: "2023",
-    link: "#"
+    link: "https://drive.google.com/file/d/1MI2UxtvME63wcvJ9GYABShILbpu85FxI/view"
   },
   {
     title: "C++ Programming",
-    platform: "Online Certification",
-    date: "2023",
-    link: "#"
+    platform: "Techno Comp Academy",
+    date: "2024",
+    link: "https://drive.google.com/file/d/1KdPsGK94rFaCZgm5jI9YX6poRW-BVSdk/view"
   },
   {
     title: "Data Structures & Algorithms",
-    platform: "Online Course",
-    date: "2023",
-    link: "#"
+    platform: "Techno Comp Academy",
+    date: "2024",
+    link: "https://technocompacademy.com/tcaapp/get_certificate.php?id=TCADS2024B18R805"
   },
   {
     title: "Python Programming",
-    platform: "Online Certification",
+    platform: "HackerRank",
     date: "2024",
-    link: "#"
+    link: "https://www.hackerrank.com/certificates/iframe/08c2194fd416"
   },
   {
-    title: "Core Java",
-    platform: "Java Institute",
+    title: "Java(Basic)",
+    platform: "HackerRank",
     date: "2024",
-    link: "#"
+    link: "https://www.hackerrank.com/certificates/iframe/5ffe7be61a9b"
   },
   {
     title: "Advanced Java",
-    platform: "Java Institute",
-    date: "2024",
-    link: "#"
+    platform: "Techno Comp Academy",
+    date: "2025",
+    link: "https://technocompacademy.com/tcaapp/get_certificate.php?id=TCAAJ2025B20R261"
   },
   {
     title: "Hibernate Framework",
-    platform: "Online Course",
-    date: "2024",
-    link: "#"
+    platform: "Techno Comp Academy",
+    date: "2025",
+    link: "https://technocompacademy.com/tcaapp/get_certificate.php?id=TCAHFB2025B03R304"
   },
   {
     title: "Postman API Testing",
     platform: "Postman Learning",
-    date: "2024",
-    link: "#"
+    date: "2025",
+    link: "https://badges.parchment.com/public/assertions/Kp6F5YIdQG2odsqMI5Ltqg?identity__email=aniketjumde55@gmail.com"
   }
 ];
 

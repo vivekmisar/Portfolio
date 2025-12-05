@@ -28,7 +28,7 @@ export function Contact() {
             <p className="text-muted-foreground text-lg mb-8">
               Feel free to reach out to me for any questions or opportunities!
             </p>
-            
+
             <div className="space-y-6 mb-12">
               <div className="flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-colors">
@@ -36,17 +36,17 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email Me</p>
-                  <p className="font-medium">aniket.jumde@example.com</p>
+                  <p className="font-medium">aniketjumde55@gmail.com</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-colors">
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Call Me</p>
-                  <p className="font-medium">+91 98765 43210</p>
+                  <p className="font-medium">+91 93569 91161</p>
                 </div>
               </div>
 
@@ -64,16 +64,13 @@ export function Contact() {
             <h3 className="text-xl font-bold mb-6">Connect with me</h3>
             <div className="flex gap-4">
               {[
-                { icon: Github, label: "GitHub" },
-                { icon: Linkedin, label: "LinkedIn" },
-                { icon: Code2, label: "LeetCode" }
+                { icon: Github, label: "GitHub", href: "https://github.com/aniketjumde" },
+                { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/aniket-jumde-74275a289/" },
+                { icon: Mail, label: "Email", href: "mailto:aniketjumde55@gmail.com" },
+                { icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/AniketJumde55/" }
               ].map((item, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all hover:-translate-y-1"
-                >
-                  <item.icon className="w-5 h-5" />
+                <a key={i} href={item.href} className="text-muted-foreground hover:text-primary transition-all hover:-translate-y-1" title={item.label} >
+                  <item.icon className="w-7 h-7" />
                 </a>
               ))}
             </div>
@@ -85,23 +82,46 @@ export function Contact() {
             viewport={{ once: true }}
             className="glass-card p-8 rounded-3xl border border-white/5"
           >
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={async (e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const data = Object.fromEntries(formData);
+
+              try {
+                const res = await fetch("/api/contact", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(data),
+                });
+
+                if (res.ok) {
+                  const result = await res.json();
+                  alert(result.message);
+                  (e.target as HTMLFormElement).reset();
+                } else {
+                  alert("Failed to send message. Please try again.");
+                }
+              } catch (error) {
+                console.error(error);
+                alert("An error occurred. Please try again.");
+              }
+            }}>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Your Name</label>
-                <Input placeholder="John Doe" className="bg-black/20 border-white/10 focus:border-primary/50 h-12 rounded-xl" />
-              </div>
-              
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Email Address</label>
-                <Input placeholder="john@example.com" type="email" className="bg-black/20 border-white/10 focus:border-primary/50 h-12 rounded-xl" />
-              </div>
-              
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Message</label>
-                <Textarea placeholder="How can I help you?" className="bg-black/20 border-white/10 focus:border-primary/50 min-h-[150px] rounded-xl resize-none" />
+                <Input name="name" placeholder="John Doe" required className="bg-black/20 border-white/10 focus:border-primary/50 h-12 rounded-xl" />
               </div>
 
-              <Button className="w-full h-12 text-base rounded-xl bg-primary hover:bg-primary/90 text-white">Send Message</Button>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Email Address</label>
+                <Input name="email" placeholder="john@example.com" type="email" required className="bg-black/20 border-white/10 focus:border-primary/50 h-12 rounded-xl" />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Message</label>
+                <Textarea name="message" placeholder="How can I help you?" required className="bg-black/20 border-white/10 focus:border-primary/50 min-h-[150px] rounded-xl resize-none" />
+              </div>
+
+              <Button type="submit" className="w-full h-12 text-base rounded-xl bg-primary hover:bg-primary/90 text-white">Send Message</Button>
             </form>
           </motion.div>
         </div>

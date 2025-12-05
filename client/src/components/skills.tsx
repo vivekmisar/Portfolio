@@ -37,9 +37,8 @@ const mainSkills = [
     title: "Databases",
     items: [
       { name: "MySQL", icon: Database },
-      { name: "PostgreSQL", icon: Database },
-      { name: "MongoDB", icon: Database }
-    ]
+      { name: "PostgreSQL", icon: Database }
+      ]
   },
   {
     title: "Web Technologies",

@@ -34,7 +34,10 @@ export function Resume() {
               
               <div className="flex flex-wrap justify-center gap-4 mb-12">
                 <Button className="h-12 px-8 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center gap-2">
-                  <Eye className="w-4 h-4" /> View Resume
+                  <Eye className="w-4 h-4" /> 
+                  <a href="https://drive.google.com/file/d/1KVUn2BsmhlHPinjNnRZhveGyL2WQZ7cO/view?usp=sharing" download>
+                    View Resume
+                  </a>
                 </Button>
                 <Button variant="outline" className="h-12 px-8 rounded-lg border-blue-500/30 text-blue-400 hover:bg-blue-500/10 hover:text-blue-300 font-medium flex items-center gap-2">
                   <Download className="w-4 h-4" /> Download PDF
