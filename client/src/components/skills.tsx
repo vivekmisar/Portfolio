@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { 
-  Code2, 
-  Database, 
-  Layout, 
-  Settings, 
-  Terminal, 
+import {
+  Code2,
+  Database,
+  Layout,
+  Settings,
+  Terminal,
   Globe,
   Coffee,
   FileCode,
@@ -38,7 +38,7 @@ const mainSkills = [
     items: [
       { name: "MySQL", icon: Database },
       { name: "PostgreSQL", icon: Database }
-      ]
+    ]
   },
   {
     title: "Web Technologies",
@@ -112,14 +112,14 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="bg-[#0f1219] border border-white/5 p-6 rounded-2xl hover:border-primary/30 transition-colors"
+              className="bg-white dark:bg-[#0f1219] border border-black/5 dark:border-white/5 p-6 rounded-2xl hover:border-primary/30 transition-colors shadow-sm dark:shadow-none"
             >
               <h3 className="text-lg font-bold mb-6">{category.title}</h3>
               <div className="flex flex-wrap gap-3">
                 {category.items.map((skill, i) => (
-                  <div 
-                    key={i} 
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/5 text-sm text-muted-foreground hover:text-white hover:bg-white/10 transition-colors cursor-default"
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-black/5 dark:border-white/5 text-sm text-muted-foreground hover:text-primary dark:hover:text-white hover:bg-primary/5 dark:hover:bg-white/10 transition-colors cursor-default"
                   >
                     <skill.icon className="w-4 h-4" />
                     <span>{skill.name}</span>
@@ -136,13 +136,13 @@ export function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#0f1219] border border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-colors"
+            className="bg-white dark:bg-[#0f1219] border border-black/5 dark:border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-colors shadow-sm dark:shadow-none"
           >
             <h3 className="text-lg font-bold mb-6">Core Concepts</h3>
             <div className="flex flex-wrap gap-3">
               {coreConcepts.map((concept, i) => (
-                <span 
-                  key={i} 
+                <span
+                  key={i}
                   className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium border border-primary/20 hover:bg-primary/20 transition-colors cursor-default"
                 >
                   {concept}
@@ -156,14 +156,14 @@ export function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#0f1219] border border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-colors"
+            className="bg-white dark:bg-[#0f1219] border border-black/5 dark:border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-colors shadow-sm dark:shadow-none"
           >
             <h3 className="text-lg font-bold mb-6">Soft Skills</h3>
             <div className="grid grid-cols-3 gap-4">
               {softSkills.map((skill, i) => (
-                <div 
-                  key={i} 
-                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-white/5 border border-white/5 text-center hover:bg-white/10 transition-colors group"
+                <div
+                  key={i}
+                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-100 dark:bg-white/5 border border-black/5 dark:border-white/5 text-center hover:bg-gray-200 dark:hover:bg-white/10 transition-colors group"
                 >
                   <skill.icon className="w-6 h-6 mb-3 text-muted-foreground group-hover:text-white transition-colors" />
                   <span className="text-sm font-medium text-muted-foreground group-hover:text-white transition-colors">{skill.name}</span>

@@ -31,7 +31,7 @@ export function Contact() {
 
             <div className="space-y-6 mb-12">
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center border border-black/5 dark:border-white/10 group-hover:border-primary/50 transition-colors">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
@@ -80,7 +80,7 @@ export function Contact() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 rounded-3xl border border-white/5"
+            className="glass-card p-8 rounded-3xl border border-black/5 dark:border-white/5 bg-white/50 dark:bg-white/5 shadow-xl"
           >
             <form className="space-y-6" onSubmit={async (e) => {
               e.preventDefault();
@@ -108,17 +108,17 @@ export function Contact() {
             }}>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Your Name</label>
-                <Input name="name" placeholder="John Doe" required className="bg-black/20 border-white/10 focus:border-primary/50 h-12 rounded-xl" />
+                <Input name="name" placeholder="John Doe" required className="bg-white dark:bg-black/20 border-gray-200 dark:border-white/10 focus:border-primary/50 h-12 rounded-xl" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium">Email Address</label>
-                <Input name="email" placeholder="john@example.com" type="email" required className="bg-black/20 border-white/10 focus:border-primary/50 h-12 rounded-xl" />
+                <Input name="email" placeholder="john@example.com" type="email" required className="bg-white dark:bg-black/20 border-gray-200 dark:border-white/10 focus:border-primary/50 h-12 rounded-xl" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium">Message</label>
-                <Textarea name="message" placeholder="How can I help you?" required className="bg-black/20 border-white/10 focus:border-primary/50 min-h-[150px] rounded-xl resize-none" />
+                <Textarea name="message" placeholder="How can I help you?" required className="bg-white dark:bg-black/20 border-gray-200 dark:border-white/10 focus:border-primary/50 min-h-[150px] rounded-xl resize-none" />
               </div>
 
               <Button type="submit" className="w-full h-12 text-base rounded-xl bg-primary hover:bg-primary/90 text-white">Send Message</Button>

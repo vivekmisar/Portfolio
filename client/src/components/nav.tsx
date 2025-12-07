@@ -23,10 +23,10 @@ export function Nav() {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
-    
+
     // Set initial dark mode
     document.documentElement.classList.add("dark");
-    
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -38,20 +38,18 @@ export function Nav() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "py-4" : "py-6"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "py-4" : "py-6"
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4">
         <nav
-          className={`mx-auto max-w-6xl rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300 ${
-            isScrolled
-              ? "bg-black/50 backdrop-blur-lg border border-white/10 shadow-lg"
+          className={`mx-auto max-w-6xl rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300 ${isScrolled
+              ? "bg-white/80 dark:bg-black/50 backdrop-blur-lg border border-black/5 dark:border-white/10 shadow-lg"
               : "bg-transparent border-transparent"
-          }`}
+            }`}
         >
           <Link href="/" className="text-xl font-bold tracking-tighter flex items-center gap-2">
             <span className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-mono">AJ</span>
@@ -73,9 +71,9 @@ export function Nav() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button 
-              variant="ghost" 
-              size="icon" 
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={toggleTheme}
               className="rounded-full text-muted-foreground hover:text-primary"
             >
@@ -115,10 +113,10 @@ export function Nav() {
               </a>
             ))}
             <div className="flex justify-between items-center mt-2">
-               <span className="text-sm text-muted-foreground">Theme</span>
-               <Button 
-                variant="ghost" 
-                size="icon" 
+              <span className="text-sm text-muted-foreground">Theme</span>
+              <Button
+                variant="ghost"
+                size="icon"
                 onClick={toggleTheme}
                 className="rounded-full"
               >
@@ -126,10 +124,10 @@ export function Nav() {
               </Button>
             </div>
             <Button asChild className="w-full mt-2">
-            <a href="https://drive.google.com/file/d/1KVUn2BsmhlHPinjNnRZhveGyL2WQZ7cO/view?usp=sharing" download>
-              Download CV
-            </a>
-          </Button>
+              <a href="https://drive.google.com/file/d/1KVUn2BsmhlHPinjNnRZhveGyL2WQZ7cO/view?usp=sharing" download>
+                Download CV
+              </a>
+            </Button>
           </div>
         </motion.div>
       )}
