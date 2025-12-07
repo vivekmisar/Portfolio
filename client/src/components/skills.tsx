@@ -112,14 +112,14 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-[#0f1219] border border-black/5 dark:border-white/5 p-6 rounded-2xl hover:border-primary/30 transition-colors shadow-sm dark:shadow-none"
+              className="bg-card text-card-foreground border border-border p-6 rounded-2xl hover:border-primary/30 transition-colors shadow-sm"
             >
               <h3 className="text-lg font-bold mb-6">{category.title}</h3>
               <div className="flex flex-wrap gap-3">
                 {category.items.map((skill, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-white/5 border border-black/5 dark:border-white/5 text-sm text-muted-foreground hover:text-primary dark:hover:text-white hover:bg-primary/5 dark:hover:bg-white/10 transition-colors cursor-default"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-secondary text-secondary-foreground border border-border/50 text-sm hover:text-primary hover:bg-secondary/80 transition-colors cursor-default"
                   >
                     <skill.icon className="w-4 h-4" />
                     <span>{skill.name}</span>
@@ -136,7 +136,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-[#0f1219] border border-black/5 dark:border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-colors shadow-sm dark:shadow-none"
+            className="bg-card text-card-foreground border border-border p-8 rounded-2xl hover:border-primary/30 transition-colors shadow-sm"
           >
             <h3 className="text-lg font-bold mb-6">Core Concepts</h3>
             <div className="flex flex-wrap gap-3">
@@ -156,17 +156,17 @@ export function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-[#0f1219] border border-black/5 dark:border-white/5 p-8 rounded-2xl hover:border-primary/30 transition-colors shadow-sm dark:shadow-none"
+            className="bg-card text-card-foreground border border-border p-8 rounded-2xl hover:border-primary/30 transition-colors shadow-sm"
           >
             <h3 className="text-lg font-bold mb-6">Soft Skills</h3>
             <div className="grid grid-cols-3 gap-4">
               {softSkills.map((skill, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-100 dark:bg-white/5 border border-black/5 dark:border-white/5 text-center hover:bg-gray-200 dark:hover:bg-white/10 transition-colors group"
+                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-secondary text-secondary-foreground border border-border/50 text-center hover:bg-secondary/80 transition-colors group"
                 >
-                  <skill.icon className="w-6 h-6 mb-3 text-muted-foreground group-hover:text-white transition-colors" />
-                  <span className="text-sm font-medium text-muted-foreground group-hover:text-white transition-colors">{skill.name}</span>
+                  <skill.icon className="w-6 h-6 mb-3 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">{skill.name}</span>
                 </div>
               ))}
             </div>
